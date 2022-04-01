@@ -1,4 +1,4 @@
-package appointmentsystem
+package com.slewis
 
 class Doctor {
 
@@ -16,9 +16,17 @@ class Doctor {
 	qualification blank:false
 	position blank:false
 	doctorEmail blank:false, unique:true
-	password min:8, blank:false
+	password size:6..16, blank:false
 	doctorOffice blank:false, unique:true
-	doctorPhone min:11, blank:false, unique:true
+	doctorPhone size:10..12, blank:false, unique:true
 	bio size: 10..100, blank:false
     }
+    
+    static hasMany = [prescription:Prescription]
+    static hasMany = [appointment:Appointment]
+    static belongsTo = [surgery:Surgery]
+    static hasMany = [nurse:Nurse]
+    static hasMany = [patient:Patient]
+    
+    
 }

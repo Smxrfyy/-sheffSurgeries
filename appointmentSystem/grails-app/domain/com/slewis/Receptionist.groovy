@@ -1,4 +1,4 @@
-package appointmentsystem
+package com.slewis
 
 class Receptionist {
 
@@ -11,7 +11,8 @@ class Receptionist {
     	recepName blank:false
 	recepEmail blank:false, unique:true
 	recepUsername blank:false, unique:true
-	recepPassword blank:false, min:8
-	recepPhone blank:false, min:10, unique:true
+	recepPassword blank:false, size:6..20
+	recepPhone blank:false, size:10..12, unique:true
     }
+    static belongsTo = [surgery:Surgery]
 }

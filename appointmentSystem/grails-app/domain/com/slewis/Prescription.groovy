@@ -1,4 +1,4 @@
-package appointmentsystem
+package com.slewis
 
 class Prescription {
 
@@ -16,4 +16,9 @@ class Prescription {
 	dateIssued blank:false
 	patientPaying blank:false
     }
+    
+    static belongsTo = [doctor:Doctor]
+    static belongsTo = [patient:Patient]
+    
+    
 }
