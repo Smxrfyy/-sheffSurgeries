@@ -10,6 +10,9 @@ class Doctor {
 	int doctorOffice
 	int doctorPhone
 	String bio
+	String toString(){
+	return fullName
+}
     static constraints = {
     
     	fullName blank:false
