@@ -9,6 +9,9 @@ class Surgery {
 	int numberOfPatients
 	String description
 	String openingTime
+	String toString(){
+	return name
+	}
     static constraints = {
     	name blank:false, unique:true
 	address blank:false
