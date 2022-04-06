@@ -19,14 +19,14 @@
 <div class="navbar">
 <ul>
   <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-  <li style="float:right"><a href="${createLink(uri: '/')}">Doctor Login</a></li>
-  <li style="float:right"><a href="${createLink(uri: '/receptionist/Home')}">Receptionist Login</a></li>
+  <g:loginToggle />
 </ul>
 </div>
 <g:layoutBody/>
 
 <div class="footer" role="contentinfo">
     <div class="container-fluid">
+    <g:smiley />
         
     </div>
 </div>

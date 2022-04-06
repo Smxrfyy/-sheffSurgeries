@@ -1,0 +1,14 @@
+.item-box {
+    color: black;
+    border: 2px solid #BBBBBB;
+    background-color: white;
+    border-radius: 5px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+}
+.survey-button {
+    margin-right: 10px;
+}

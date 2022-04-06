@@ -22,6 +22,7 @@ class ReceptionistController {
         respond new Receptionist(params)
     }
 
+
     def save(Receptionist receptionist) {
         if (receptionist == null) {
             notFound()
@@ -75,17 +76,49 @@ class ReceptionistController {
             notFound()
             return
         }
+        else{
+               receptionistService.delete(id)
 
-        receptionistService.delete(id)
+                request.withFormat {
+                    form multipartForm {
+                        flash.message = message(code: 'default.deleted.message', args: [message(code: 'receptionist.label', default: 'Receptionist'), id])
+                        redirect action:"index", method:"GET"
+                    }
+                    '*'{ render status: NO_CONTENT }
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'receptionist.label', default: 'Receptionist'), id])
-                redirect action:"index", method:"GET"
+                                    }
             }
-            '*'{ render status: NO_CONTENT }
-        }
+                         
+        
     }
+
+    def login() {
+        
+        
+    }
+    
+
+        
+
+    def validate() {
+        def user = Receptionist.findByUsername(params.username)
+            if (user && user.password == (params.password)){
+                session.user = user
+                render view:'Home'
+            }
+            else{
+            flash.message = "Invalid username and password."
+            render view:'login'
+            }
+            
+    }
+
+    def logout = {
+        session.user = null
+        redirect(uri:'/')
+    }
+
+     
 
     protected void notFound() {
         request.withFormat {

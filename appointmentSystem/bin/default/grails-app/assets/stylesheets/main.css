@@ -33,7 +33,7 @@ html * {
 }
 
 body {
-    background-color: #F5F5F5;
+    background-color: #caeef0;
     color: #333333;
     overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
     -moz-box-shadow: 0 0 0.3em #424649;
@@ -71,12 +71,15 @@ img {
 }
 
 .content {
+    background-color: pink;
 }
 
 .content h1 {
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid #ff53e8;
     margin: 0.8em 1em 0.3em;
     padding: 0 0.25em;
+    margin-top: 0px;
+
 }
 
 .scaffold-list h1 {
@@ -121,6 +124,44 @@ img {
 }
 
 /* NAVIGATION MENU */
+
+.navbar {
+    width: 100%;
+    background-color: #333;
+
+}
+
+#welcomemessage {
+    text-align: center;
+    color: pink;
+    
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+  }
 
 .nav {
     zoom: 1;

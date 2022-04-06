@@ -3,9 +3,9 @@ package com.slewis
 class Prescription {
 
 	String pharmacyName
-	int prescripNumber
+	String prescripNumber
 	String medicene
-	int totalCost
+	String totalCost
 	Date dateIssued
 	boolean patientPaying
     static constraints = {

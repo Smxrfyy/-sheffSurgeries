@@ -18,6 +18,50 @@ class PatientController {
         respond patientService.get(id)
     }
 
+    def search(){
+        render view:'search'
+    }
+
+    def advSearch(){
+        render view:'advSearch'
+    }    
+
+    def results(String name){
+         def patients=Patient.where{
+            patientName=~name}
+            .list()
+          
+          return [patient:patients,
+             term:params.name,
+             totalPatients: Patient.count(),
+             found: patients.size(),]
+    }
+
+    def advResults() {
+        def patientProps= Patient.metaClass.properties*.name
+         def patients = Patient.withCriteria {
+            "${params.queryType}" {
+                params.each { field, value ->
+                    if (patientProps.grep(field) && value) {
+                        ilike(field, value)
+                    }
+                }
+             }
+        }
+         return [ 
+             patient : patients,
+             found : patients.size(),
+             totalPatients : Patient.count(),
+          ]
+ }
+
+
+    
+
+  
+
+    
+
     def create() {
         respond new Patient(params)
     }
